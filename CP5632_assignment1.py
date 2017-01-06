@@ -4,7 +4,7 @@ DATE : 06/01/2017
 PROGRAM DETAILS : This program is a simple reading list where we create an empty list BOOK_LIST and perform read , write operations to the CSV file /
                  Along with, two more operations Add and mark book functions. Program functions as per the users input and performs operations based
                  on the required User inputs.
-GITHUB LINK     :   https://github.com/raja0203/assignment1/blob/master/CP5632_assignment1.py
+GITHUB LINK     :   https://github.com/raja0203/assignment1.git
 """
 __author__ = "Raja Vignesh Virkudi Raghunath"
 
@@ -31,7 +31,7 @@ def main():
 
 
             elif choice == 'A':
-                add_new_book()
+                book_list = add_new_book()
 
             elif choice == 'M':
                 mark_book_completed(book_list)
@@ -56,9 +56,8 @@ def display_menu():
     print()
 
 
-def load_books(book_list):  # loading books
-    """
-    """
+def load_books(book_list):  # loading books from file to list
+
     file = open(BOOK_FILE,'r')
     for line in file:
         book_list.append(line.strip().split(','))
@@ -88,7 +87,7 @@ def list_completed_books(book_list): # Completed books function declaration
             total_no_pages = total_no_pages + int(book_list[count][2])
             flag += 1
         count = count + 1
-    print("total number of pages for {} books: {}".format(flag , total_no_pages))
+    print("Total number of pages for {} books: {}".format(flag , total_no_pages))
 
 
 def add_new_book(): # add news books function declaration
